@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F1B52FAD24EFBDA0003A6AAC /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B52FAC24EFBDA0003A6AAC /* CardView.swift */; };
 		F1C64EBA24EEBCD30055C705 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C64EB924EEBCD30055C705 /* Color.swift */; };
 		F1C64EBC24EF32C00055C705 /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C64EBB24EF32C00055C705 /* CustomModifiers.swift */; };
 		F1DE330024EE6F64008F6DF7 /* TinderCloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE32FF24EE6F64008F6DF7 /* TinderCloneApp.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F1B52FAC24EFBDA0003A6AAC /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F1C64EB924EEBCD30055C705 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		F1C64EBB24EF32C00055C705 /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
 		F1DE32FC24EE6F64008F6DF7 /* TinderClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinderClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +47,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F1B52FAE24EFBDA4003A6AAC /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F1DE330E24EE6FC9008F6DF7 /* HomeView.swift */,
+				F1B52FAC24EFBDA0003A6AAC /* CardView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		F1DE32F324EE6F64008F6DF7 = {
 			isa = PBXGroup;
 			children = (
@@ -87,7 +98,7 @@
 		F1DE331624EE7009008F6DF7 /* Tab */ = {
 			isa = PBXGroup;
 			children = (
-				F1DE330E24EE6FC9008F6DF7 /* HomeView.swift */,
+				F1B52FAE24EFBDA4003A6AAC /* Home */,
 				F1DE331024EE6FEF008F6DF7 /* LikesView.swift */,
 				F1DE331224EE6FFB008F6DF7 /* MessagesView.swift */,
 				F1DE331424EE7003008F6DF7 /* ProfileView.swift */,
@@ -165,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1DE331324EE6FFB008F6DF7 /* MessagesView.swift in Sources */,
+				F1B52FAD24EFBDA0003A6AAC /* CardView.swift in Sources */,
 				F1DE330F24EE6FC9008F6DF7 /* HomeView.swift in Sources */,
 				F1C64EBA24EEBCD30055C705 /* Color.swift in Sources */,
 				F1DE331124EE6FEF008F6DF7 /* LikesView.swift in Sources */,

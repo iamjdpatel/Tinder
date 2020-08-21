@@ -9,12 +9,15 @@ import SwiftUI
 
 struct ProfileView: View {
     var body: some View {
-        VStack(spacing: 20) {
-            Image(systemName: "person.crop.circle.fill")
+        VStack(spacing: 25) {
+            Image("img_jd")
                 .resizable()
+                .aspectRatio(contentMode: .fill)
                 .frame(width: 120, height: 120)
+                .cornerRadius(60)
+                .shadow(radius: 5)
             VStack(spacing: 5) {
-                Text("JD Patel")
+                Text("JD")
                     .font(.system(size: 30))
                     .fontWeight(.heavy)
                 Text("iOS Engineer")
@@ -55,17 +58,20 @@ struct ProfileView: View {
                     Text("Media")
                 }.offset(y: 40)
             }
-            Spacer()
-            Button(action: {}) {
-                Text("UPGRADE")
-                    .font(.title2)
-                    .bold()
-                    .foregroundColor(.electricPink)
-                    .frame(width: 230, height: 60)
-                    .modifier(ButtonBG())
-                    .cornerRadius(30)
-            }
-            .modifier(ThemeShadow())
+            VStack {
+                Spacer()
+                ProfileCarouselInfo()
+                Button(action: {}) {
+                    Text("UPGRADE")
+                        .font(.title2)
+                        .bold()
+                        .foregroundColor(.electricPink)
+                        .frame(width: 230, height: 60)
+                        .modifier(ButtonBG())
+                        .cornerRadius(30)
+                }
+                .modifier(ThemeShadow())
+            }//.background(Color.red)
         }
         .padding(.vertical, 30)
     }
@@ -74,5 +80,92 @@ struct ProfileView: View {
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView()
+            .preferredColorScheme(.dark)
     }
+}
+
+struct ProfileCarouselInfo: View {
+    @State private var selectedTab = 0
+    @State var currentDate = Date()
+    let timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
+    let info = CarouselInfo.info
+    @State private var accentColor: Color = .electricPink
+    
+    var body: some View {
+        TabView(selection: $selectedTab) {
+            ForEach(0..<info.count) { i in
+                VStack(spacing: 16) {
+                    HStack {
+                        Image(systemName: info[i].image)
+                            .imageScale(.large)
+                            .foregroundColor(.gold)
+                        Text("Get Tinder Gold")
+                            .font(.title)
+                            .bold()
+                    }
+                    Text("See who likes you & more!")
+                        .fontWeight(.light)
+                    Spacer()
+                }
+                .tag(i)
+            }//.background(Color.yellow)
+        }//.background(Color.green)
+        .frame(width: UIScreen.main.bounds.width, height: 120)
+        .tabViewStyle(PageTabViewStyle())
+        .accentColor(accentColor)
+        .onReceive(timer) { input in
+            withAnimation(.easeInOut(duration: 1)) {
+                self.selectedTab += 1
+                if selectedTab == 4 {
+                    selectedTab = 0
+                }
+            }
+        }
+    }
+}
+
+struct CarouselInfo {
+    let id: Int
+    let title: String
+    let info: String
+    let image: String
+    let color: Color
+    
+    static let info = [
+        CarouselInfo(id: 0,
+                     title: "Get Tinder Gold",
+                     info: "See who likes you & more!",
+                     image: "flame.fill",
+                     color: .gold),
+        CarouselInfo(id: 1,
+                     title: "Get matches faster",
+                     info: "Boost your profile once a month!",
+                     image: "bolt.fill",
+                     color: .purple),
+        CarouselInfo(id: 2,
+                     title: "Stand out with Super Likes",
+                     info: "You're 3 times more likely to geta match!",
+                     image: "star.fill",
+                     color: .blue),
+        CarouselInfo(id: 3,
+                     title: "Swipe around the world",
+                     info: "Passport to anywhere with Tinder Plus!",
+                     image: "location.fill",
+                     color: .blue),
+        CarouselInfo(id: 4,
+                     title: "Control your profile",
+                     info: "Limit what others see with Tinder Plus.",
+                     image: "key.info",
+                     color: .orange),
+        CarouselInfo(id: 5,
+                     title: "I meant to swipe right.",
+                     info: "Get unlimited Rewinds with Tinder Plus!",
+                     image: "replay",
+                     color: .gold),
+        CarouselInfo(id: 6,
+                     title: "Increase your chances",
+                     info: "Get unlimited likes with Tinder Plus!",
+                     image: "heart.fill",
+                     color: Color(UIColor(red: 60/255, green: 229/255, blue: 184/255, alpha: 1)))
+    ]
 }

@@ -31,7 +31,7 @@ struct ContentView: View {
                 Spacer()
                 ForEach(tabs, id: \.id) { tab in
                     Image(systemName: tab.image)
-                        .font(.system(size: 30))
+                        .font(.system(size: 25))
                         .foregroundColor(tab.id == selectedTab ? tab.color : Color.gray.opacity(0.7))
                         .onTapGesture {
                             withAnimation(.easeInOut(duration: 0.5)) {
