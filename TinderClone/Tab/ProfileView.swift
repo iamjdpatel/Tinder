@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     var body: some View {
-        VStack(spacing: 25) {
+        VStack(spacing: 20) {
             Image("img_jd")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
@@ -58,8 +58,8 @@ struct ProfileView: View {
                     Text("Media")
                 }.offset(y: 40)
             }
+            .offset(y: -20)
             VStack {
-                Spacer()
                 ProfileCarouselInfo()
                 Button(action: {}) {
                     Text("UPGRADE")
@@ -71,7 +71,8 @@ struct ProfileView: View {
                         .cornerRadius(30)
                 }
                 .modifier(ThemeShadow())
-            }//.background(Color.red)
+            }
+            .padding(.top, 60)
         }
         .padding(.vertical, 30)
     }
@@ -94,29 +95,29 @@ struct ProfileCarouselInfo: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             ForEach(0..<info.count) { i in
-                VStack(spacing: 16) {
-                    HStack {
+                VStack(spacing: 12) {
+                    HStack(spacing: 16) {
                         Image(systemName: info[i].image)
-                            .imageScale(.large)
-                            .foregroundColor(.gold)
-                        Text("Get Tinder Gold")
-                            .font(.title)
+                            .font(.system(size: 20))
+                            .foregroundColor(info[i].color)
+                        Text(info[i].title)
+                            .font(.title2)
                             .bold()
                     }
-                    Text("See who likes you & more!")
+                    Text(info[i].info)
                         .fontWeight(.light)
                     Spacer()
                 }
                 .tag(i)
             }//.background(Color.yellow)
         }//.background(Color.green)
-        .frame(width: UIScreen.main.bounds.width, height: 120)
+        .frame(width: UIScreen.main.bounds.width, height: 100)
         .tabViewStyle(PageTabViewStyle())
         .accentColor(accentColor)
         .onReceive(timer) { input in
             withAnimation(.easeInOut(duration: 1)) {
                 self.selectedTab += 1
-                if selectedTab == 4 {
+                if selectedTab == info.count {
                     selectedTab = 0
                 }
             }
@@ -155,12 +156,12 @@ struct CarouselInfo {
         CarouselInfo(id: 4,
                      title: "Control your profile",
                      info: "Limit what others see with Tinder Plus.",
-                     image: "key.info",
+                     image: "key.fill",
                      color: .orange),
         CarouselInfo(id: 5,
                      title: "I meant to swipe right.",
                      info: "Get unlimited Rewinds with Tinder Plus!",
-                     image: "replay",
+                     image: "gobackward",
                      color: .gold),
         CarouselInfo(id: 6,
                      title: "Increase your chances",
