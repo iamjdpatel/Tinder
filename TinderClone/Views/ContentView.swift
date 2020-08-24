@@ -24,45 +24,59 @@ struct Tab {
 struct ContentView: View {
     let tabs = Tab.tabs
     @State private var selectedTab: Int = 0
+    @State var isLoading: Bool = true
     
     var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-                ForEach(tabs, id: \.id) { tab in
-                    Image(systemName: tab.image)
-                        .font(.system(size: 25))
-                        .foregroundColor(tab.id == selectedTab ? tab.color : Color.gray.opacity(0.7))
-                        .onTapGesture {
-                            withAnimation(.easeInOut(duration: 0.5)) {
-                                selectedTab = tab.id
-                            }
+        Group {
+            if isLoading {
+                LoadingView()
+            } else {
+                VStack {
+                    HStack {
+                        Spacer()
+                        ForEach(tabs, id: \.id) { tab in
+                            Image(systemName: tab.image)
+                                .font(.system(size: 25))
+                                .foregroundColor(tab.id == selectedTab ? tab.color : Color.gray.opacity(0.7))
+                                .onTapGesture {
+                                    withAnimation(.easeInOut(duration: 0.5)) {
+                                        selectedTab = tab.id
+                                    }
+                                }
+                            Spacer()
                         }
-                    Spacer()
+                    }
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 45)
+                    TabView(selection: $selectedTab) {
+                        HomeView()
+                            .tag(0)
+                        LikesView()
+                            .tag(1)
+                        MessagesView()
+                            .tag(2)
+                        ProfileView()
+                            .tag(3)
+                    }
+                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 }
+                .background(Color(UIColor.systemGroupedBackground).edgesIgnoringSafeArea(.all))
             }
-            .frame(maxWidth: .infinity)
-            .frame(height: 45)
-            TabView(selection: $selectedTab) {
-                HomeView()
-                    .tag(0)
-                LikesView()
-                    .tag(1)
-                MessagesView()
-                    .tag(2)
-                ProfileView()
-                    .tag(3)
-            }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+        }.onAppear {
+            onAppearCalled()
         }
-        .background(Color(UIColor.systemGroupedBackground).edgesIgnoringSafeArea(.all))
-
+    }
+    
+    private func onAppearCalled() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+            isLoading = false
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-//            .preferredColorScheme(.dark)
+        //            .preferredColorScheme(.dark)
     }
 }

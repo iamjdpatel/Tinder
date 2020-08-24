@@ -9,49 +9,34 @@ import SwiftUI
 
 struct HomeView: View {
     private let buttons = ActionButton.buttons
-    @State private var isLoading: Bool = true
 
     var body: some View {
-        if isLoading {
-            LoadingView()
-                .onAppear {
-                    onAppearCalled()
+        VStack {
+            ZStack {
+                ForEach(1..<3) { i in
+                    CardView(i: i)
+                        .shadow(radius: 5)
+                        .scaleEffect(i == 1 ? 0.98 : 1 , anchor: .center)
                 }
-        } else {
-            VStack {
-                ZStack {
-                    ForEach(1..<3) { i in
-                        CardView(i: i)
-                            .shadow(radius: 5)
-                            .scaleEffect(i == 1 ? 0.98 : 1 , anchor: .center)
-                    }
-                }
-                Spacer()
-                HStack {
-                    Spacer()
-                    ForEach(buttons, id: \.id) { button in
-                        Image(systemName: button.image)
-                            .font(.system(size: 23, weight: .heavy))
-                            .foregroundColor(button.color)
-                            .frame(width: button.height, height: button.height)
-                            .modifier(ButtonBG())
-                            .cornerRadius(button.height/2)
-                            .modifier(ThemeShadow())
-                        Spacer()
-                    }
-                }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 5)
             }
-            .background(Color(UIColor.systemGroupedBackground).edgesIgnoringSafeArea(.all))
+            Spacer()
+            HStack {
+                Spacer()
+                ForEach(buttons, id: \.id) { button in
+                    Image(systemName: button.image)
+                        .font(.system(size: 23, weight: .heavy))
+                        .foregroundColor(button.color)
+                        .frame(width: button.height, height: button.height)
+                        .modifier(ButtonBG())
+                        .cornerRadius(button.height/2)
+                        .modifier(ThemeShadow())
+                    Spacer()
+                }
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 5)
         }
-        
-    }
-    
-    private func onAppearCalled() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            isLoading = false
-        }
+        .background(Color(UIColor.systemGroupedBackground).edgesIgnoringSafeArea(.all))
     }
 }
 

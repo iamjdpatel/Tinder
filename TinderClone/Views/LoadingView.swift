@@ -29,7 +29,7 @@ struct LoadingView: View {
                 )
         }
         .animation(
-            Animation.easeOut(duration: 3)
+            Animation.easeOut(duration: 2)
                 .repeatForever(autoreverses: false)
         )
             .onAppear {
