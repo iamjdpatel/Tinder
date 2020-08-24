@@ -47,13 +47,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F1B52FAE24EFBDA4003A6AAC /* Home */ = {
+		F109F08724F3A4C600F1A4E1 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				F1DE330E24EE6FC9008F6DF7 /* HomeView.swift */,
-				F1B52FAC24EFBDA0003A6AAC /* CardView.swift */,
+				F1C64EBB24EF32C00055C705 /* CustomModifiers.swift */,
+				F1C64EB924EEBCD30055C705 /* Color.swift */,
 			);
-			path = Home;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		F1DE32F324EE6F64008F6DF7 = {
@@ -76,10 +76,8 @@
 			isa = PBXGroup;
 			children = (
 				F1DE32FF24EE6F64008F6DF7 /* TinderCloneApp.swift */,
-				F1C64EB924EEBCD30055C705 /* Color.swift */,
-				F1C64EBB24EF32C00055C705 /* CustomModifiers.swift */,
-				F1DE330124EE6F64008F6DF7 /* ContentView.swift */,
-				F1DE331624EE7009008F6DF7 /* Tab */,
+				F109F08724F3A4C600F1A4E1 /* Extension */,
+				F1DE331624EE7009008F6DF7 /* Views */,
 				F1DE330324EE6F65008F6DF7 /* Assets.xcassets */,
 				F1DE330824EE6F65008F6DF7 /* Info.plist */,
 				F1DE330524EE6F65008F6DF7 /* Preview Content */,
@@ -95,15 +93,17 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		F1DE331624EE7009008F6DF7 /* Tab */ = {
+		F1DE331624EE7009008F6DF7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F1B52FAE24EFBDA4003A6AAC /* Home */,
+				F1DE330124EE6F64008F6DF7 /* ContentView.swift */,
+				F1DE330E24EE6FC9008F6DF7 /* HomeView.swift */,
+				F1B52FAC24EFBDA0003A6AAC /* CardView.swift */,
 				F1DE331024EE6FEF008F6DF7 /* LikesView.swift */,
 				F1DE331224EE6FFB008F6DF7 /* MessagesView.swift */,
 				F1DE331424EE7003008F6DF7 /* ProfileView.swift */,
 			);
-			path = Tab;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

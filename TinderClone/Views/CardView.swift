@@ -8,19 +8,20 @@
 import SwiftUI
 
 struct CardView: View {
+    var i: Int
     @State private var translation: CGSize = .zero
 
     var body: some View {
         GeometryReader { geo in
             ZStack {
-                Image("img_tinder1")
+                Image("img_tinder\(i)")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: geo.size.width - 32)//, height: geo.size.height * 0.75)
+                    .frame(width: geo.size.width - 32)
                     .clipped()
                     .cornerRadius(15)
                     .modifier(ThemeShadow())
-//                CardInfoView()
+                CardInfoView()
                 VStack {
                     HStack {
                         Text("LIKE")
@@ -73,13 +74,13 @@ struct CardInfoView: View {
             Spacer()
             HStack(alignment: .bottom) {
                 VStack(spacing: 5) {
-                    Text("JD Patel, 29")
+                    Text("Ketty, 29")
                         .font(.system(size: 30))
                         .fontWeight(.heavy)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     Text("Recently active")
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("Developer")
+                    Text("Fashion Blogger")
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 Image(systemName: "info.circle.fill")
@@ -92,6 +93,7 @@ struct CardInfoView: View {
         .background(LinearGradient(gradient: Gradient(colors: [Color(UIColor.black).opacity(0.3), .clear]),
                                     startPoint: .bottom,
                                     endPoint: .center))
+        .cornerRadius(15)
         .clipped()
     }
 }

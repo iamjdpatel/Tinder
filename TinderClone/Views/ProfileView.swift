@@ -21,7 +21,7 @@ struct ProfileView: View {
                     .font(.system(size: 30))
                     .fontWeight(.heavy)
                 Text("iOS Engineer")
-                Text("Bengaluru")
+                Text("Bengaluru, India")
             }
             ZStack {
                 HStack(spacing: 50) {
@@ -90,7 +90,6 @@ struct ProfileCarouselInfo: View {
     @State var currentDate = Date()
     let timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
     let info = CarouselInfo.info
-    @State private var accentColor: Color = .electricPink
     
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -109,11 +108,10 @@ struct ProfileCarouselInfo: View {
                     Spacer()
                 }
                 .tag(i)
-            }//.background(Color.yellow)
-        }//.background(Color.green)
+            }
+        }
         .frame(width: UIScreen.main.bounds.width, height: 100)
         .tabViewStyle(PageTabViewStyle())
-        .accentColor(accentColor)
         .onReceive(timer) { input in
             withAnimation(.easeInOut(duration: 1)) {
                 self.selectedTab += 1

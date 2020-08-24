@@ -12,7 +12,13 @@ struct HomeView: View {
     
     var body: some View {
         VStack {
-            CardView()
+            ZStack {
+                ForEach(1..<3) { i in
+                    CardView(i: i)
+                        .shadow(radius: 5)
+                        .scaleEffect(i == 1 ? 0.98 : 1 , anchor: .center)
+                }
+            }
             Spacer()
             HStack {
                 Spacer()
