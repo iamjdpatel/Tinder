@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F14E055224F446F200796331 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14E055124F446F200796331 /* LoadingView.swift */; };
 		F1B52FAD24EFBDA0003A6AAC /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B52FAC24EFBDA0003A6AAC /* CardView.swift */; };
 		F1C64EBA24EEBCD30055C705 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C64EB924EEBCD30055C705 /* Color.swift */; };
 		F1C64EBC24EF32C00055C705 /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C64EBB24EF32C00055C705 /* CustomModifiers.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F14E055124F446F200796331 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		F1B52FAC24EFBDA0003A6AAC /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F1C64EB924EEBCD30055C705 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		F1C64EBB24EF32C00055C705 /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				F1DE330124EE6F64008F6DF7 /* ContentView.swift */,
+				F14E055124F446F200796331 /* LoadingView.swift */,
 				F1DE330E24EE6FC9008F6DF7 /* HomeView.swift */,
 				F1B52FAC24EFBDA0003A6AAC /* CardView.swift */,
 				F1DE331024EE6FEF008F6DF7 /* LikesView.swift */,
@@ -178,6 +181,7 @@
 				F1DE331324EE6FFB008F6DF7 /* MessagesView.swift in Sources */,
 				F1B52FAD24EFBDA0003A6AAC /* CardView.swift in Sources */,
 				F1DE330F24EE6FC9008F6DF7 /* HomeView.swift in Sources */,
+				F14E055224F446F200796331 /* LoadingView.swift in Sources */,
 				F1C64EBA24EEBCD30055C705 /* Color.swift in Sources */,
 				F1DE331124EE6FEF008F6DF7 /* LikesView.swift in Sources */,
 				F1DE330224EE6F64008F6DF7 /* ContentView.swift in Sources */,
