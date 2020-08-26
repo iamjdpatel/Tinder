@@ -17,8 +17,8 @@ struct Card: Identifiable {
     static let cards: [Card] = [
         Card(name: "Dakota Johnson", age: 29, desc: "Love", image: "img_dj"),
         Card(name: "Angelina Jolie", age: 29, desc: "Beauty", image: "img_aj"),
-        Card(name: "Ketty", age: 22, desc: "Dancer", image: "img_bl"),
-        Card(name: "Ketty", age: 19, desc: "Moody", image: "img_ew"),
+        Card(name: "Brie Larson", age: 22, desc: "Dancer", image: "img_bl"),
+        Card(name: "Emma Watson", age: 19, desc: "Moody", image: "img_ew"),
         Card(name: "Gal Gadot", age: 25, desc: "DC", image: "img_gg"),
         Card(name: "Natalie Portman", age: 29, desc: "Thor's", image: "img_np"),
         Card(name: "Selena", age: 23, desc: "Singer", image: "img_sg"),

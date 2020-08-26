@@ -67,25 +67,31 @@ struct LikesSegmentView: View {
 
 
 struct TopPicksSegmentView: View {
+    private let cards: [Card] = Card.cards
     private let layout = [GridItem(.flexible()), GridItem(.flexible())]
     var body: some View {
-        ScrollView {
-            Text("Upgrade to Tinder Gold for more Top Picks!")
-                .font(.title3)
-                .bold()
-                .multilineTextAlignment(.center)
-                .frame(width: 250)
-                .foregroundColor(.gray)
-                .padding(8)
-            LazyVGrid(columns: layout, spacing: 8) {
-                ForEach(0..<29, id: \.self) { _ in
-                    Color.random.opacity(0.8)
-                        .frame(height: 250)
-                        .cornerRadius(15)
-                        .shadow(radius: 3)
+        GeometryReader { geo in
+            ScrollView {
+                Text("Upgrade to Tinder Gold for more Top Picks!")
+                    .font(.title3)
+                    .bold()
+                    .multilineTextAlignment(.center)
+                    .frame(width: 250)
+                    .foregroundColor(.gray)
+                    .padding(8)
+                LazyVGrid(columns: layout, spacing: 8) {
+                    ForEach(cards, id: \.id) { card in
+                        Image(card.image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: (geo.size.width - 24)/2, height: 250)
+                            .cornerRadius(15)
+    //                        .clipped()
+                            .shadow(radius: 3)
+                    }
                 }
+                .padding(8)
             }
-            .padding(8)
         }
     }
 }
