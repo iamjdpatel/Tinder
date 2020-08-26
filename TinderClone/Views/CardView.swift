@@ -8,48 +8,53 @@
 import SwiftUI
 
 struct CardView: View {
-    var i: Int
+    var card: Card
     @State private var translation: CGSize = .zero
 
     var body: some View {
         GeometryReader { geo in
             ZStack {
-                Image("img_tinder\(i)")
+                Image(card.image)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: geo.size.width - 32)
                     .clipped()
                     .cornerRadius(15)
                     .modifier(ThemeShadow())
-                CardInfoView()
+                
                 VStack {
                     HStack {
-                        Text("LIKE")
-                            .tracking(3)
-                            .font(.title)
-                            .padding(.horizontal)
-                            .foregroundColor(.green)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 5)
-                                    .stroke(Color.green, lineWidth: 3)
-                            )
-                            .rotationEffect(.degrees(-20))
-                        Spacer()
-                        Text("NOPE")
-                            .tracking(3)
-                            .font(.title)
-                            .padding(.horizontal)
-                            .foregroundColor(.red)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 5)
-                                    .stroke(Color.red, lineWidth: 3)
-                            )
-                            .rotationEffect(.degrees(20))
+                        if translation.width > 0 {
+                            Text("LIKE")
+                                .tracking(3)
+                                .font(.title)
+                                .padding(.horizontal)
+                                .foregroundColor(.green)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .stroke(Color.green, lineWidth: 3)
+                                )
+                                .rotationEffect(.degrees(-20))
+                            Spacer()
+                        } else if translation.width < 0 {
+                            Spacer()
+                            Text("NOPE")
+                                .tracking(3)
+                                .font(.title)
+                                .padding(.horizontal)
+                                .foregroundColor(.red)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .stroke(Color.red, lineWidth: 3)
+                                )
+                                .rotationEffect(.degrees(20))
+                        }
                     }.padding(.horizontal, 25)
                     Spacer()
+                    CardInfoView(card: card)
                 }
                 .padding(.top, 40)
-                .padding(.bottom, 150)
+//                .padding(.bottom, 150)
             }
             .offset(x: self.translation.width, y: 0)
             .rotationEffect(.degrees(Double(self.translation.width / geo.size.width) * 25), anchor: .bottom)
@@ -58,7 +63,15 @@ struct CardView: View {
                     .onChanged { value in
                         self.translation = value.translation
                     }.onEnded { value in
-                        self.translation = .zero
+                        withAnimation(.easeInOut) {
+                            if translation.width > 150 {
+                                self.translation.width = 500
+                            } else if translation.width < -150 {
+                                self.translation.width = -500
+                            } else {
+                                self.translation = .zero
+                            }
+                        }
                     }
             )
             .cornerRadius(15)
@@ -69,18 +82,19 @@ struct CardView: View {
 
 
 struct CardInfoView: View {
+    let card: Card
     var body: some View {
         VStack(spacing: 10) {
-            Spacer()
+//            Spacer()
             HStack(alignment: .bottom) {
                 VStack(spacing: 5) {
-                    Text("Ketty, 29")
+                    Text("\(card.name), \(card.age)")
                         .font(.system(size: 30))
                         .fontWeight(.heavy)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     Text("Recently active")
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("Fashion Blogger")
+                    Text(card.desc)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 Image(systemName: "info.circle.fill")
@@ -90,9 +104,10 @@ struct CardInfoView: View {
         }
         .foregroundColor(.white)
         .padding()
-        .background(LinearGradient(gradient: Gradient(colors: [Color(UIColor.black).opacity(0.3), .clear]),
+        .background(LinearGradient(gradient: Gradient(colors: [Color(UIColor.black).opacity(0.9),
+                                                               .clear]),
                                     startPoint: .bottom,
-                                    endPoint: .center))
+                                    endPoint: .top))
         .cornerRadius(15)
         .clipped()
     }
@@ -100,8 +115,9 @@ struct CardInfoView: View {
 
 
 
-struct CardInfoView_Previews: PreviewProvider {
+struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardInfoView()
+        CardView(card: Card(name: "Test", age: 99, desc: "QWERTY", image: "img_gg"))
+            .preferredColorScheme(.dark)
     }
 }

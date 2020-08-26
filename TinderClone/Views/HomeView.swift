@@ -9,16 +9,17 @@ import SwiftUI
 
 struct HomeView: View {
     private let buttons = ActionButton.buttons
-
+    private let cards: [Card] = Card.cards
+    
     var body: some View {
         VStack {
             ZStack {
-                ForEach(1..<3) { i in
-                    CardView(i: i)
+                ForEach(cards, id: \.id) { card in
+                    CardView(card: card)
                         .shadow(radius: 5)
-                        .scaleEffect(i == 1 ? 0.98 : 1 , anchor: .center)
                 }
             }
+            
             Spacer()
             HStack {
                 Spacer()

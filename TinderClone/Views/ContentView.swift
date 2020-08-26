@@ -68,7 +68,7 @@ struct ContentView: View {
     }
     
     private func onAppearCalled() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             isLoading = false
         }
     }

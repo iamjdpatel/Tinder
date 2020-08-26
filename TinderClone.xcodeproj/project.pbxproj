@@ -11,6 +11,7 @@
 		F1B52FAD24EFBDA0003A6AAC /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B52FAC24EFBDA0003A6AAC /* CardView.swift */; };
 		F1C64EBA24EEBCD30055C705 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C64EB924EEBCD30055C705 /* Color.swift */; };
 		F1C64EBC24EF32C00055C705 /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C64EBB24EF32C00055C705 /* CustomModifiers.swift */; };
+		F1D5515C24F6D029009F7C90 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5515B24F6D029009F7C90 /* Card.swift */; };
 		F1DE330024EE6F64008F6DF7 /* TinderCloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE32FF24EE6F64008F6DF7 /* TinderCloneApp.swift */; };
 		F1DE330224EE6F64008F6DF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE330124EE6F64008F6DF7 /* ContentView.swift */; };
 		F1DE330424EE6F65008F6DF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1DE330324EE6F65008F6DF7 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		F1B52FAC24EFBDA0003A6AAC /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F1C64EB924EEBCD30055C705 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		F1C64EBB24EF32C00055C705 /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
+		F1D5515B24F6D029009F7C90 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		F1DE32FC24EE6F64008F6DF7 /* TinderClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinderClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1DE32FF24EE6F64008F6DF7 /* TinderCloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderCloneApp.swift; sourceTree = "<group>"; };
 		F1DE330124EE6F64008F6DF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +60,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		F1D5515A24F6D01D009F7C90 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F1D5515B24F6D029009F7C90 /* Card.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F1DE32F324EE6F64008F6DF7 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +89,7 @@
 			children = (
 				F1DE32FF24EE6F64008F6DF7 /* TinderCloneApp.swift */,
 				F109F08724F3A4C600F1A4E1 /* Extension */,
+				F1D5515A24F6D01D009F7C90 /* Model */,
 				F1DE331624EE7009008F6DF7 /* Views */,
 				F1DE330324EE6F65008F6DF7 /* Assets.xcassets */,
 				F1DE330824EE6F65008F6DF7 /* Info.plist */,
@@ -188,6 +199,7 @@
 				F1C64EBC24EF32C00055C705 /* CustomModifiers.swift in Sources */,
 				F1DE331524EE7003008F6DF7 /* ProfileView.swift in Sources */,
 				F1DE330024EE6F64008F6DF7 /* TinderCloneApp.swift in Sources */,
+				F1D5515C24F6D029009F7C90 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
