@@ -23,13 +23,17 @@ struct HomeView: View {
             HStack {
                 Spacer()
                 ForEach(buttons, id: \.id) { button in
-                    Image(systemName: button.image)
-                        .font(.system(size: 23, weight: .heavy))
-                        .foregroundColor(button.color)
-                        .frame(width: button.height, height: button.height)
-                        .modifier(ButtonBG())
-                        .cornerRadius(button.height/2)
-                        .modifier(ThemeShadow())
+                    Button(action: {
+                        
+                    }) {
+                        Image(systemName: button.image)
+                            .font(.system(size: 23, weight: .heavy))
+                            .foregroundColor(button.color)
+                            .frame(width: button.height, height: button.height)
+                            .modifier(ButtonBG())
+                            .cornerRadius(button.height/2)
+                            .modifier(ThemeShadow())
+                    }
                     Spacer()
                 }
             }
